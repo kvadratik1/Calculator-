@@ -16,12 +16,13 @@ function divide(numberOne, numberTwo) {
 
 function operate(numberOne, numberTwo, operator) {
   if (operator === "+") {
-    add(numberOne, numberTwo);
+    return add(numberOne, numberTwo);
   } else if (operator === "-") {
-    subtract(numberOne, numberTwo);
+    return subtract(numberOne, numberTwo);
   } else if (operator === "*") {
-    multiply(numberOne, numberTwo);
+    return multiply(numberOne, numberTwo);
   } else if (operator === "/") {
-    divide(numberOne, numberTwo);
+    return divide(numberOne, numberTwo);
   } else return error;
 }
+console.log("operation", operate(2, 2, "+"));
