@@ -29,3 +29,5 @@ function operate(numberOne, numberTwo, operator) {
     return divide(numberOne, numberTwo);
   } else return error;
 }
+
+function handleBtnClick() {}
