@@ -1,3 +1,7 @@
+let firstNumber = null;
+let secondNumber = null;
+let operator = null;
+
 function add(numberOne, numberTwo) {
   return numberOne + numberTwo;
 }
@@ -25,4 +29,3 @@ function operate(numberOne, numberTwo, operator) {
     return divide(numberOne, numberTwo);
   } else return error;
 }
-console.log("operation", operate(2, 2, "+"));
