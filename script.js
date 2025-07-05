@@ -38,9 +38,11 @@ function handleBtnClick(btnValue) {
     btnValue !== "+" &&
     btnValue !== "-" &&
     btnValue !== "*" &&
-    btnValue !== "/"
+    btnValue !== "/" &&
+    btnValue !== "="
   ) {
     displayState.push(btnValue);
+    console.log(displayState);
   } else if (
     displayState.length === 1 &&
     (btnValue === "+" ||
@@ -49,22 +51,27 @@ function handleBtnClick(btnValue) {
       btnValue === "/")
   ) {
     displayState.push(btnValue);
+    console.log(displayState);
   } else if (
     displayState.length === 1 &&
     btnValue !== "+" &&
     btnValue !== "-" &&
     btnValue !== "*" &&
-    btnValue !== "/"
+    btnValue !== "/" &&
+    btnValue !== "="
   ) {
     displayState[0] += btnValue;
+    console.log(displayState);
   } else if (
     displayState.length === 2 &&
     btnValue !== "+" &&
     btnValue !== "-" &&
     btnValue !== "*" &&
-    btnValue !== "/"
+    btnValue !== "/" &&
+    btnValue !== "="
   ) {
     displayState.push(btnValue);
+    console.log(displayState);
   } else if (
     displayState.length === 3 &&
     (btnValue === "+" ||
@@ -77,13 +84,28 @@ function handleBtnClick(btnValue) {
       parseInt(displayState[2]),
       displayState[1]
     );
+    displayState = [];
+    displayState.push(result.toString());
+    displayState.push(btnValue);
+    console.log(displayState);
   } else if (
     displayState.length === 3 &&
     btnValue !== "+" &&
     btnValue !== "-" &&
     btnValue !== "*" &&
-    btnValue !== "/"
+    btnValue !== "/" &&
+    btnValue !== "="
   ) {
     displayState[2] += btnValue;
+    console.log(displayState);
+  } else if (displayState.length === 3 && btnValue === "=") {
+    result = operate(
+      parseInt(displayState[0]),
+      parseInt(displayState[2]),
+      displayState[1]
+    );
+    displayState = [];
+    displayState.push(result.toString());
+    console.log(result);
   }
 }
