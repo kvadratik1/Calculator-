@@ -1,6 +1,8 @@
-let firstNumber = null;
-let secondNumber = null;
 let operator = null;
+let result = 0;
+
+let displayState = [];
+let display = document.querySelector("#display");
 
 function add(numberOne, numberTwo) {
   return numberOne + numberTwo;
@@ -30,4 +32,58 @@ function operate(numberOne, numberTwo, operator) {
   } else return error;
 }
 
-function handleBtnClick() {}
+function handleBtnClick(btnValue) {
+  if (
+    displayState.length === 0 &&
+    btnValue !== "+" &&
+    btnValue !== "-" &&
+    btnValue !== "*" &&
+    btnValue !== "/"
+  ) {
+    displayState.push(btnValue);
+  } else if (
+    displayState.length === 1 &&
+    (btnValue === "+" ||
+      btnValue === "-" ||
+      btnValue === "*" ||
+      btnValue === "/")
+  ) {
+    displayState.push(btnValue);
+  } else if (
+    displayState.length === 1 &&
+    btnValue !== "+" &&
+    btnValue !== "-" &&
+    btnValue !== "*" &&
+    btnValue !== "/"
+  ) {
+    displayState[0] += btnValue;
+  } else if (
+    displayState.length === 2 &&
+    btnValue !== "+" &&
+    btnValue !== "-" &&
+    btnValue !== "*" &&
+    btnValue !== "/"
+  ) {
+    displayState.push(btnValue);
+  } else if (
+    displayState.length === 3 &&
+    (btnValue === "+" ||
+      btnValue === "-" ||
+      btnValue === "*" ||
+      btnValue === "/")
+  ) {
+    result = operate(
+      parseInt(displayState[0]),
+      parseInt(displayState[2]),
+      displayState[1]
+    );
+  } else if (
+    displayState.length === 3 &&
+    btnValue !== "+" &&
+    btnValue !== "-" &&
+    btnValue !== "*" &&
+    btnValue !== "/"
+  ) {
+    displayState[2] += btnValue;
+  }
+}
